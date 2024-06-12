@@ -27,7 +27,8 @@ const elements = {
   showSideBarBtn: document.getElementById('show-side-bar-btn'),
   themeSwitch: document.getElementById('switch'),
   addNewTaskBrn: document.getElementById('add-new-task-btn'),
-  modalWindow: document.getElementById('new-task-modal-window')
+  modalWindow: document.getElementById('new-task-modal-window'),
+  createNewTaskBtn: document.getElementById('create-task-btn')
 
 }
 
@@ -48,6 +49,7 @@ function fetchAndDisplayBoardsAndTasks() {
   }
 }
 
+
 // Creates different boards in the DOM
 // TASK: Fix Bugs
 function displayBoards(boards) {
@@ -57,17 +59,17 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-    boardElement.click()  { 
+    boardElement.click()  ;
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
       activeBoard = board //assigns active board
       localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
       styleActiveBoard(activeBoard)
-    };
+    });
     boardsContainer.appendChild(boardElement);
-  });
+  };
 
-}
+
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
@@ -95,9 +97,9 @@ function filterAndDisplayTasksByBoard(boardName) {
       taskElement.setAttribute('data-task-id', task.id);
 
       // Listen for a click event on each task and open a modal
-      taskElement.click() => { 
+      taskElement.click() ; { 
         openEditTaskModal(task);
-      });
+      };
 
       tasksContainer.appendChild(taskElement);
     });
@@ -152,7 +154,7 @@ function addTaskToUI(task) {
 function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
-  cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
+  cancelEditBtn.click() ; toggleModal(false, elements.editTaskModal);
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
@@ -168,8 +170,8 @@ function setupEventListeners() {
   });
 
   // Show sidebar event listener
-  elements.hideSideBarBtn.click() => toggleSidebar(false));
-  elements.showSideBarBtn.click() => toggleSidebar(true));
+  elements.hideSideBarBtn.click() ; toggleSidebar(false);
+  elements.showSideBarBtn.click() ; toggleSidebar(true);
 
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
@@ -189,7 +191,7 @@ function setupEventListeners() {
 // Toggles tasks modal
 // Task: Fix bugs
 function toggleModal(show, modal = elements.modalWindow) {
-  modal.style.display = show ? 'block' => 'none'; 
+  modal.style.display = show ? 'block' : 'none'; 
 }
 
 /*************************************************************************************************************************************************
@@ -237,7 +239,7 @@ function openEditTaskModal(task) {
   // Delete task using a helper function and close the task modal
 
 
-  toggleModal(true, elements.editTaskModal); // Show the edit task modal
+  //toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
 
 function saveTaskChanges(taskId) {
@@ -269,3 +271,5 @@ function init() {
   document.body.classList.toggle('light-theme', isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
 }
+
+
