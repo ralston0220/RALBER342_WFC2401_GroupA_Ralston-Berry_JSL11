@@ -113,9 +113,10 @@ function refreshTasksUI() {
 
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
-// styleActiveBoard had syntax problem and classList had to be added in the if statement conditionals  
+//styleActiveBoard had syntax problem and classList had to be added in the if statement conditionals and forEach
+// was written incorrectly
 function styleActiveBoard(boardName) {
-  document.querySelectorAll('.board-btn').foreach((btn) => { 
+  document.querySelectorAll('.board-btn').forEach((btn) => { 
     
     if(btn.textContent === boardName) {
       btn.classList.add('active');
