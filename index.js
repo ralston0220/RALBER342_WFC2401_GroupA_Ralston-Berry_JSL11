@@ -29,7 +29,7 @@ const elements = {
   addNewTaskBrn: document.getElementById('add-new-task-btn'),
   modalWindow: document.getElementById('new-task-modal-window'),
   createNewTaskBtn: document.getElementById('create-task-btn')
-
+  
 }
 
 let activeBoard = ""
