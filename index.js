@@ -60,7 +60,7 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-
+    // addEventListener was missing 
     boardElement.addEventListener('click', () => { // Add click event listener
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
