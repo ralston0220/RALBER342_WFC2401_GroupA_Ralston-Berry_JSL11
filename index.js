@@ -95,17 +95,18 @@ function filterAndDisplayTasksByBoard(boardName) {
 
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
-
-    filteredTasks.filter(task => task.status = status).forEach(task => { 
+  //  added strict equals to compare instead of assign tasks.status with status
+    filteredTasks.filter(task => task.status === status).forEach(task => { 
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-div");
       taskElement.textContent = task.title;
       taskElement.setAttribute('data-task-id', task.id);
 
       // Listen for a click event on each task and open a modal
-      taskElement.click() ; { 
+      // added an eventlistener to 
+      taskElement.addEventListener('click', () => { 
         openEditTaskModal(task);
-      };
+      });
 
       tasksContainer.appendChild(taskElement);
     });
