@@ -164,7 +164,7 @@ function addTaskToUI(task) {
 function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
-  // added an eventEistener
+  // added an eventListener
   cancelEditBtn.addEventListener('click', () => {
     toggleModal(false, elements.editTaskModal);
   });
@@ -210,8 +210,9 @@ function toggleModal(show, modal = elements.modalWindow) {
 /*************************************************************************************************************************************************
  * COMPLETE FUNCTION CODE
  * **********************************************************************************************************************************************/
-
+// collects user 
 function addTask(event) {
+  // stops the form from reloading the page
   event.preventDefault(); 
 
   //Assign user input to the task object
@@ -229,8 +230,32 @@ function addTask(event) {
 }
 
 
+/**
+ * Toggles the visibility of the sidebar.
+ * 
+ * @param {boolean} show - Determines whether to show or hide the sidebar.
+ */
 function toggleSidebar(show) {
- 
+  // Get the sidebar element from the DOM using its ID
+  const sidebar = document.getElementById('sidebar');
+
+  // Check if the sidebar element was found
+  if (!sidebar) {
+    // If the sidebar element was not found, log an error message to the console
+    console.error('Sidebar element not found');
+
+    // Exit the function early to prevent further execution
+    return;
+  }
+
+  // Toggle the display property of the sidebar element based on the show parameter
+  if (show) {
+    // If show is true, display the sidebar by setting its display property to 'block'
+    sidebar.style.display = 'block'; 
+  } else {
+    // If show is false, hide the sidebar by setting its display property to 'none'
+    sidebar.style.display = 'none'; 
+  }
 }
 
 function toggleTheme() {
