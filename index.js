@@ -103,7 +103,7 @@ function filterAndDisplayTasksByBoard(boardName) {
       taskElement.setAttribute('data-task-id', task.id);
 
       // Listen for a click event on each task and open a modal
-      // added an eventlistener to 
+      // added an eventlistener 
       taskElement.addEventListener('click', () => { 
         openEditTaskModal(task);
       });
@@ -136,7 +136,8 @@ function styleActiveBoard(boardName) {
 
 
 function addTaskToUI(task) {
-  const column = document.querySelector('.column-div[data-status="${task.status}"]'); 
+  // changed the single quotes ( ' ) to backticks ( ` )
+  const column = document.querySelector(`.column-div[data-status="${task.status}"]`); 
   if (!column) {
     console.error(`Column not found for status: ${task.status}`);
     return;
@@ -154,8 +155,8 @@ function addTaskToUI(task) {
   taskElement.className = 'task-div';
   taskElement.textContent = task.title; // Modify as needed
   taskElement.setAttribute('data-task-id', task.id);
-  
-  tasksContainer.appendChild(); 
+  // added taskElement to the appendChild argument
+  tasksContainer.appendChild(taskElement); 
 }
 
 
