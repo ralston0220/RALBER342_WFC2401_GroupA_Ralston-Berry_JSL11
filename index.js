@@ -164,7 +164,10 @@ function addTaskToUI(task) {
 function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
-  cancelEditBtn.click() ; toggleModal(false, elements.editTaskModal);
+  // added an eventEistener
+  cancelEditBtn.addEventListener('click', () => {
+    toggleModal(false, elements.editTaskModal);
+  });
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
