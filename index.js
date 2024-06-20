@@ -271,7 +271,7 @@ function toggleTheme() {
       } else {
         localStorage.setItem('light-theme', 'disabled');
       }
-      
+
   
 }
 
@@ -280,21 +280,28 @@ function toggleTheme() {
 function openEditTaskModal(task) {
   // Set task details in modal inputs
   
-
   // Get button elements from the task modal
-
+  const saveButton = document.getElementById('save-changes-btn');
+  const deleteButton = document.getElementById('delete-task-btn');
 
   // Call saveTaskChanges upon click of Save Changes button
- 
+  saveButton.onclick = function() {
+    saveTaskChanges(task.id);
+};
 
   // Delete task using a helper function and close the task modal
+  deleteButton.onclick = function() {
+    // call helper function to delete task
+    deleteTask(task.id);
+    closeModal();
+  }
 
-
-  //toggleModal(true, elements.editTaskModal); // Show the edit task modal
+  toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
+  
   
 
   // Create an object with the updated task details
