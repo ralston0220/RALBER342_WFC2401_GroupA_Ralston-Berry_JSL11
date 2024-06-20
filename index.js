@@ -183,8 +183,8 @@ function setupEventListeners() {
   });
 
   // Show sidebar event listener
-  elements.hideSideBarBtn.click() ; toggleSidebar(false);
-  elements.showSideBarBtn.click() ; toggleSidebar(true);
+  elements.hideSideBarBtn.addEventListener('click',  () => { toggleSidebar(false); }) ; 
+  elements.showSideBarBtn.addEventListener('click',  () => { toggleSidebar(true); }) ; 
 
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
@@ -243,7 +243,7 @@ function addTask(event) {
  */
 function toggleSidebar(show) {
   // Get the sidebar element from the DOM using its ID
-  const sidebar = document.getElementById('sidebar');
+  const sidebar = document.getElementById('side-bar-div');
 
   // Check if the sidebar element was found
   if (!sidebar) {
@@ -256,11 +256,11 @@ function toggleSidebar(show) {
 
   // Toggle the display property of the sidebar element based on the show parameter
   if (show) {
-    // If show is true, display the sidebar by setting its display property to 'block'
-    sidebar.style.display = 'block'; 
+    sidebar.style.display = "flex";
+    elements.showSideBarBtn.style.display = "none";
   } else {
-    // If show is false, hide the sidebar by setting its display property to 'none'
-    sidebar.style.display = 'none'; 
+    sidebar.style.display = "none";
+    elements.showSideBarBtn.style.display = "block";
   }
 }
 
