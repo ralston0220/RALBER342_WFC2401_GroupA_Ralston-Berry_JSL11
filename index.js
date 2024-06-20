@@ -301,16 +301,22 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
+  const updatedTaskName = document.getElementById('taskNameInput').value;
+  const updatedTaskDescription = document.getElementById('taskDescriptionInput').value;
   
-  
-
   // Create an object with the updated task details
-
+  const updatedTask = {
+    id: taskId,
+    name: updatedTaskName,
+    description: updatedTaskDescription
+};
 
   // Update task using a hlper functoin
- 
+  updateTask(updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
+  closeModal();
+
 
   refreshTasksUI();
 }
