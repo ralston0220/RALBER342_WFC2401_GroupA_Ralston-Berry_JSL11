@@ -199,6 +199,11 @@ function setupEventListeners() {
   elements.modalWindow.addEventListener('submit',  (event) => {
     addTask(event)
   });
+
+  elements.addNewTaskBtn.addEventListener('click', () => {
+    toggleModal(true);
+    elements.filterDiv.style.display = 'block'; // Also show the filter overlay
+  });
 }
 
 // Toggles tasks modal
@@ -294,9 +299,13 @@ function openEditTaskModal(task) {
     console.error('Save or delete button not found');
     return;
   }
-      saveButton.onclick = function() {
-        saveTaskChanges(task.id);
-    };
+    //   saveButton.onclick = function() {
+    //     saveTaskChanges(task.id);
+    // };
+
+    saveButton.addEventListener('click', () => {
+      saveTaskChanges(task.id);
+    });
 
   // Delete task using a helper function and close the task modal
   deleteButton.onclick = function() {
@@ -310,21 +319,25 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const updatedTaskName = document.getElementById('taskNameInput').value;
-  const updatedTaskDescription = document.getElementById('taskDescriptionInput').value;
+  const updatedTaskName = document.getElementById('edit-task-title-input').value;
+  const updatedTaskDescription = document.getElementById('edit-task-desc-input').value;
+  const updatedTaskStatus = document.getElementById('edit-select-status').value;
   
   // Create an object with the updated task details
   const updatedTask = {
     id: taskId,
     name: updatedTaskName,
-    description: updatedTaskDescription
+    description: updatedTaskDescription,
+    status: updatedTaskStatus
 };
-
+console.log(updatedTask);
   // Update task using a hlper functoin
-  updateTask(updatedTask);
+  patchTask(updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
-  closeModal();
+  // closeModal();
+  toggleModal(false, elements.editTaskModal);
+
 
 
   refreshTasksUI();
