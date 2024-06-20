@@ -218,8 +218,8 @@ function addTask(event) {
   //Assign user input to the task object
     const task = {
         id: Date.now().toString(), // Example ID
-        title: document.getElementById('edit-task-title-input').value,
-        description: document.getElementById('edit-task-desc-input').value,
+        title: document.getElementById('task-title-input').value,
+        description: document.getElementById('task-desc-input').value,
         status: 'TODO', // Default status
         board: activeBoard // Associate with active board
       
