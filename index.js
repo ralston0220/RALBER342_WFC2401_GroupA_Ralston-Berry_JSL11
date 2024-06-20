@@ -290,11 +290,25 @@ function openEditTaskModal(task) {
   const deleteButton = document.getElementById('delete-task-btn');
 
   // Call saveTaskChanges upon click of Save Changes button
-  saveButton.onclick = function() {
-    saveTaskChanges(task.id);
-};
+  if (saveButton) {
+      saveButton.onclick = function() {
+        saveTaskChanges(task.id);
+    };
+
+  } else {
+    console.error('Save button not found');
+  }
 
   // Delete task using a helper function and close the task modal
+  if (deleteButton) {
+    deleteButton.onclick = function() {
+      // call helper function to delete task
+      deleteTask(task.id);
+      closeModal();
+    }
+  } else {
+    console.error('Delete button not found');
+  }
   deleteButton.onclick = function() {
     // call helper function to delete task
     deleteTask(task.id);
