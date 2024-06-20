@@ -217,8 +217,14 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
+        id: Date.now().toString(), // Example ID
+        title: document.getElementById('edit-task-title-input').value,
+        description: document.getElementById('edit-task-desc-input').value,
+        status: 'TODO', // Default status
+        board: activeBoard // Associate with active board
       
     };
+
     const newTask = createNewTask(task);
     if (newTask) {
       addTaskToUI(newTask);
@@ -300,8 +306,8 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const updatedTaskName = document.getElementById('edit-task-title-input').value;
-  const updatedTaskDescription = document.getElementById('edit-task-desc-input').value;
+  const updatedTaskName = document.getElementById('taskNameInput').value;
+  const updatedTaskDescription = document.getElementById('taskDescriptionInput').value;
   
   // Create an object with the updated task details
   const updatedTask = {
