@@ -301,14 +301,6 @@ function openEditTaskModal(task) {
 
   // Delete task using a helper function and close the task modal
   if (deleteButton) {
-    deleteButton.onclick = function() {
-      // call helper function to delete task
-      deleteTask(task.id);
-      closeModal();
-    }
-  } else {
-    console.error('Delete button not found');
-  }
   deleteButton.onclick = function() {
     // call helper function to delete task
     deleteTask(task.id);
