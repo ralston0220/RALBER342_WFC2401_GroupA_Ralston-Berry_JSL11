@@ -259,7 +259,20 @@ function toggleSidebar(show) {
 }
 
 function toggleTheme() {
- 
+      // Toggle the light-theme class on the body element
+      document.body.classList.toggle('light-theme');
+
+      // Check if the light-theme class is now present on the body
+      const isLightTheme = document.body.classList.contains('light-theme');  
+      
+      // Save the current theme in local storage
+      if (isLightTheme) {
+        localStorage.setItem('light-theme', 'enabled');
+      } else {
+        localStorage.setItem('light-theme', 'disabled');
+      }
+      
+  
 }
 
 
