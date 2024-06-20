@@ -276,7 +276,6 @@ function toggleTheme() {
 }
 
 
-
 function openEditTaskModal(task) {
   // Set task details in modal inputs
   
@@ -301,8 +300,8 @@ function openEditTaskModal(task) {
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const updatedTaskName = document.getElementById('taskNameInput').value;
-  const updatedTaskDescription = document.getElementById('taskDescriptionInput').value;
+  const updatedTaskName = document.getElementById('edit-task-title-input').value;
+  const updatedTaskDescription = document.getElementById('edit-task-desc-input').value;
   
   // Create an object with the updated task details
   const updatedTask = {
