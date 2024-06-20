@@ -26,7 +26,7 @@ const elements = {
   hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
   showSideBarBtn: document.getElementById('show-side-bar-btn'),
   themeSwitch: document.getElementById('switch'),
-  addNewTaskBrn: document.getElementById('add-new-task-btn'),
+  addNewTaskBtn: document.getElementById('add-new-task-btn'),
   modalWindow: document.getElementById('new-task-modal-window'),
   createNewTaskBtn: document.getElementById('create-task-btn')
   
@@ -286,26 +286,24 @@ function openEditTaskModal(task) {
   // Set task details in modal inputs
   
   // Get button elements from the task modal
-  const saveButton = document.getElementById('save-changes-btn');
+  const saveButton = document.getElementById('save-task-changes-btn');
   const deleteButton = document.getElementById('delete-task-btn');
 
   // Call saveTaskChanges upon click of Save Changes button
-  if (saveButton) {
+  if (!saveButton || !deleteButton) {
+    console.error('Save or delete button not found');
+    return;
+  }
       saveButton.onclick = function() {
         saveTaskChanges(task.id);
     };
 
-  } else {
-    console.error('Save button not found');
-  }
-
   // Delete task using a helper function and close the task modal
-  if (deleteButton) {
   deleteButton.onclick = function() {
     // call helper function to delete task
     deleteTask(task.id);
     closeModal();
-  }
+  };
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
