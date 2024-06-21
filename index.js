@@ -339,7 +339,7 @@ console.log(updatedTask);
   toggleModal(false, elements.editTaskModal);
 
 
-
+  
   refreshTasksUI();
 }
 
