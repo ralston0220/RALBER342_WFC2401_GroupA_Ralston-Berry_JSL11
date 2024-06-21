@@ -2,7 +2,7 @@
 import { getTasks, createNewTask, patchTask, deleteTask, putTask } from './utils/taskFunctions.js';
 // TASK: import initialData
 import { initialData } from './initialData.js';
-
+initializeData ();
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
  * **********************************************************************************************************************************************/
